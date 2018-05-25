@@ -31,18 +31,18 @@ public class OrderStepExecutionListener implements StepExecutionListener {
 	
 	@Override
 	public ExitStatus afterStep(StepExecution arg0) {
-		LOG.debug("Step 1 Execution completed");		
+		LOG.info("Step 1 Execution completed");		
 		return ExitStatus.COMPLETED;
 	}
 
 	@Override
 	public void beforeStep(StepExecution arg0) {
-		LOG.debug("Caching started..");
+		LOG.info("Caching started..");
 		cService.allorder();
-		LOG.debug("Caching done..");
-		LOG.debug("Step 1 Execution started..");
+		LOG.info("Caching done..");
+		LOG.info("Step 1 Execution started..");
 		List<Order> list = service.getAllOrders();
-		LOG.debug("Read count : " + list.size());
+		LOG.info("Read count : " + list.size());
 		reader.setList(list);
 	}
 
